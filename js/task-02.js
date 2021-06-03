@@ -9,9 +9,13 @@ const ingredients = [
 
 const ingredientsEl = document.querySelector('#ingredients');
 
-const newList = ingredients.reduce((str, item) => str + `<li>${item}</li>`,'');
+const newList = ingredients.forEach(indgredient => {
+  let items = document.createElement("li");
 
-ingredientsEl.innerHTML = newList;
+  items.innerHTML = indgredient;
+  ingredientsEl.append(items);
+  
+});
 
 console.log(ingredientsEl);
 

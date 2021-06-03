@@ -19,8 +19,14 @@ const images = [
 const galleryEl = document.querySelector('#gallery');
 // Обратился по id к списку.
 
-images.forEach(element => {
-    galleryEl.insertAdjacentHTML('afterbegin', `<li> <img src = '${element.url}' alt = '${element.alt}' width = '200' height = '150'/> </li>`);
-    // Сделал перебор массива "images" и добавил элементы списка с ссылкой и описью img.
-});
+const galleryItem = ({ url, alt }) =>
+  `<li><img src = "${url}" alt = "${alt}" width = 200 height = 150></li>`;
+  
+  const galleryMarkup = images.reduce(
+  (acc, item) => acc + galleryItem(item),
+  ""
+);
+galleryEl.insertAdjacentHTML("afterbegin", galleryMarkup);
+
+
 console.log(galleryEl);
