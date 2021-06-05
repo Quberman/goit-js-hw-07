@@ -12,7 +12,7 @@ const ingredientsEl = document.querySelector('#ingredients');
 const newList = ingredients.forEach(indgredient => {
   let items = document.createElement("li");
 
-  items.innerHTML = indgredient;
+  items.textContent = indgredient;
   ingredientsEl.append(items);
   
 });

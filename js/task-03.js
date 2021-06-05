@@ -18,15 +18,21 @@ const images = [
 
 const galleryEl = document.querySelector('#gallery');
 // Обратился по id к списку.
-
-const galleryItem = ({ url, alt }) =>
-  `<li><img src = "${url}" alt = "${alt}" width = 200 height = 150></li>`;
+images.forEach(el => {
+  galleryEl.insertAdjacentHTML(
+    'afterbegin',
+    `<li><img src = "${el.url}" alt = "${el.alt}"  width = "150" height = "100"/></li>`,
+  );
+});
+// const galleryItem = ({ url, alt }) =>
+//   `<li><img src = "${url}" alt = "${alt}" width = 200 height = 150></li>`;
   
-  const galleryMarkup = images.reduce(
-  (acc, item) => acc + galleryItem(item),
-  ""
-);
-galleryEl.insertAdjacentHTML("afterbegin", galleryMarkup);
+//   const galleryMarkup = images.reduce(
+//   (acc, item) => acc + galleryItem(item),
+//   ""
+// );
+// galleryEl.insertAdjacentHTML("afterbegin", galleryMarkup);
 
 
-console.log(galleryEl);
+
+
